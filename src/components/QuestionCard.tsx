@@ -1,6 +1,6 @@
 // src/components/QuestionCard.tsx
 import { Card, Button as BootstrapButton } from "react-bootstrap";
-import triviaImage from "/src/assets/trivia.jpg"; // Your trivia image path
+import triviaImage from "/src/assets/trivia.jpg";
 
 interface QuestionCardProps {
   question: string;
@@ -16,7 +16,7 @@ const QuestionCard = ({ question, options, onAnswer }: QuestionCardProps) => {
         src={triviaImage}
         alt="Trivia"
         className="card-img-top p-3 mx-auto"
-        style={{ width: "75%", height: "auto" }} //Image for card.
+        style={{ width: "75%", height: "auto" }} // Image for card.
       />
       <Card.Body>
         <Card.Title>{question}</Card.Title>

@@ -4,7 +4,7 @@ interface AlertMessageIncorrectProps {
   message: string;
   onClose: () => void;
 }
-// I decided to make my alerts non dismissable, but to disappear instead.
+// I decided to make my alerts non dismissable, but to disappear instead with back or next button press.
 const AlertMessageIncorrect = ({
   message,
   onClose,

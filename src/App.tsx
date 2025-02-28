@@ -142,47 +142,47 @@ const App = () => {
   const [alertVisible, setAlertVisible] = useState(false);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
-  const [answered, setAnswered] = useState(false); // To track if the question is answered
-  const [showGoBackButton, setShowGoBackButton] = useState(false); // Track visibility of go back button
+  const [answered, setAnswered] = useState(false); // To track if the question is answered.
+  const [showGoBackButton, setShowGoBackButton] = useState(false); // Track visibility of go back button I do not want it to show on 1st question.
 
   const handleAnswer = (selectedAnswer: string) => {
     const currentQuestion = questions[currentQuestionIndex];
 
-    // Check if the selected answer is correct
+    // Check if the selected answer is correct.
     if (selectedAnswer === currentQuestion.correctAnswer) {
       setScore(score + 1);
-      setAlertVisible(true); // Show alert for correct answer
+      setAlertVisible(true); // Show alert for correct answer.
     } else {
-      setAlertVisible(false); // Hide alert if wrong
+      setAlertVisible(false); // Hide alert if wrong.
     }
 
-    setAnswered(true); // Mark the question as answered
-    setShowGoBackButton(true); // Show the go back button after answering
+    setAnswered(true); // Show that the question as answered.
+    setShowGoBackButton(true); // Show the go back button after answering first question.
   };
 
   const handleNextQuestion = () => {
-    setAlertVisible(false); // Hide the alert immediately when moving to the next question
+    setAlertVisible(false); // Hide the alerts immediately when moving to the next question.
 
     if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex(currentQuestionIndex + 1); // Move to the next question
-      setAnswered(false); // Reset the answered state for the next question
-      setShowGoBackButton(true); // Ensure the go back button remains visible
+      setCurrentQuestionIndex(currentQuestionIndex + 1); // Move to the next question.
+      setAnswered(false); // Reset the answered state for the next question.
+      setShowGoBackButton(true); // Ensure the go back button remains visible.
     } else {
-      alert(`Game Over! Your final score is: ${score}`); // To end the game
-      setCurrentQuestionIndex(0); // Restart the game
+      alert(`Game Over! Your final score is: ${score}`); // To end the game at last question.
+      setCurrentQuestionIndex(0); // Restart the game.
       setScore(0); // Reset score
       setAnswered(false); // Reset answered state
-      setShowGoBackButton(false); // Hide the go back button when at the first question
+      setShowGoBackButton(false); // Hide the go back button when at the first question.
     }
   };
 
   const handleGoBack = () => {
     if (currentQuestionIndex > 0) {
-      setCurrentQuestionIndex(currentQuestionIndex - 1); // Go back to the previous question
-      setAnswered(false); // Reset the answered state when going back
-      setAlertVisible(false); // Hide any alert when going back
+      setCurrentQuestionIndex(currentQuestionIndex - 1); // Go back to the previous question.
+      setAnswered(false); // Reset the answered state when going back.
+      setAlertVisible(false); // Hide any alert when going back.
     } else {
-      setShowGoBackButton(false); // Hide the go back button if at the first question
+      setShowGoBackButton(false); // Hide the go back button if at the first question.
     }
   };
 
